@@ -1,5 +1,4 @@
-Выберете все противовоспалительные лекарства в аптеке рядом с метро 
-Автозаводская.
+-- Выберете все противовоспалительные лекарства в аптеке рядом с метро Автозаводская.
 
 SELECT medicine.name, pharmacy.address, pharmacy.code, available_medicine.count 
 FROM available_medicine

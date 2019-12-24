@@ -1,4 +1,4 @@
-Выберете провизора, который продал лекарств на самую большую сумму.
+-- Выберете провизора, который продал лекарств на самую большую сумму.
 
 
 SELECT pharmacist.first_name, pharmacist.last_name, pharmacist.middle_name,
