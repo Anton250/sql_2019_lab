@@ -16,7 +16,7 @@ CREATE TABLE `std_847`.`pharmacy` ( `id` INT NOT NULL AUTO_INCREMENT , `address`
 CREATE TABLE `std_847`.`medicine` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , `dosage` VARCHAR(50) NOT NULL , `count` INT NOT NULL , `manufacturer` VARCHAR(100) NOT NULL , `need_recipe` BOOLEAN NOT NULL , `fk_category` INT NOT NULL , `price` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 CREATE TABLE `std_847`.`category` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 CREATE TABLE `std_847`.`pharmacist` ( `id` INT NOT NULL AUTO_INCREMENT , `last_name` VARCHAR(50) NOT NULL , `first_name` VARCHAR(50) NOT NULL , `middle_name` VARCHAR(50) NOT NULL , `birthday` DATE NOT NULL , `INN` SMALLINT NOT NULL , `passport` VARCHAR(11) NOT NULL , `fk_pharmacy` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
-CREATE TABLE `std_847`.`available_medicine` ( `fk_pharmacy` INT NOT NULL , `fk_medicine` INT NOT NULL , `count` INT NOT NULL , UNIQUE `pharmacy_medicine` (`fk_pharmacy`, `fk_medicine`)) ENGINE = InnoDB;
+CREATE TABLE `std_847`.`available_medicine` ( `fk_pharmacy` INT NOT NULL , `fk_medicine` INT NOT NULL , `count` INT NOT NULL , PRIMARY KEY(`fk_pharmacy`, `fk_medicine`)) ENGINE = InnoDB;
 CREATE TABLE `std_847`.`sell_medicine` ( `id` INT NOT NULL AUTO_INCREMENT , `fk_medicine` INT NOT NULL , `fk_pharmacy` INT NOT NULL , `fk_pharmacist` INT NOT NULL , `date` DATE NOT NULL , `count` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ALTER TABLE pharmacist ADD FOREIGN KEY (fk_pharmacy) REFERENCES pharmacy (id);
 ALTER TABLE medicine ADD FOREIGN KEY (fk_category) REFERENCES category (id);
